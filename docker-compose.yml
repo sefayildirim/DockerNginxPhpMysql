@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  # PHP servisi
+  php:
+    image: php:8.2-fpm
+    volumes:
+      - ./project:/var/www/html
+    ports:
+      - 80:80
+    networks:
+      - my_network
+
+
+  # Nginx servisi
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - ./project:/var/www/html
+    depends_on:
+      - php
+    networks:
+      - my_network
+
+  # MySQL servisi
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+      MYSQL_DATABASE: my_database
+      MYSQL_USER: my_user
+      MYSQL_PASSWORD: my_password
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge
