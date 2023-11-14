@@ -1,4 +1,4 @@
-# DockerNginxPhpMysql Docker Compose Konfigürasyonu
+# Docker İle Nginx, Php, Mysql Docker Compose Konfigürasyonu
 
 Bu repo, Nginx, Php, Mysql için Docker Compose konfigürasyonunu içerir. Bu konfigürasyon, PHP, Nginx ve MySQL servislerini bir araya getirerek projenizi çalıştırmanızı sağlar.
 
