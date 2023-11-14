@@ -3,6 +3,8 @@ version: '3'
 services:
   # PHP servisi
   php:
+    #php sürümü
+    #image: php:7.4-fpm
     image: php:8.2-fpm
     volumes:
       - ./project:/var/www/html
@@ -27,6 +29,8 @@ services:
 
   # MySQL servisi
   mysql:
+    #mysql sürümü
+    #image: mysql:5.7
     image: mysql:latest
     environment:
       MYSQL_ROOT_PASSWORD: my-secret-pw
